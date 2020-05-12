@@ -83,8 +83,10 @@ Here, name, value, and description are columns somewhere in the database that ar
 
 2. Run the query following to verify that supplemental logging is enabled for the database. If the returned result is YES or IMPLICIT, supplemental logging is enabled for the database.
 
+
     SELECT supplemental_log_data_min FROM v$database;
 
 3. If needed, enable supplemental logging for the database by running the command following.
+
 
     ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
