@@ -92,3 +92,7 @@ SELECT supplemental_log_data_min FROM v$database;
 ```
 ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
 ```
+
+# Other information
+For others difference environment like Oracle ASM、LogMiner、DMS Binary Reader and DMS limitation,please see:
+https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html
