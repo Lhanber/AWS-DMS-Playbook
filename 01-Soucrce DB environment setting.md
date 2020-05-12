@@ -77,14 +77,15 @@ To use an Oracle database as a source in AWS DMS, grant the privileges following
 
 1. Run the sample query following to verify that the current version of the Oracle database is supported by AWS DMS. If the query runs without error, the returned database version is supported.
 
-    SELECT name, value, description FROM v$parameter WHERE name = 'compatible';    
+
+    name, value, description FROM v$parameter WHERE name = compatible;
 
 Here, name, value, and description are columns somewhere in the database that are being queried based on the value of name. As part of the query, an AWS DMS task checks the value of v$parameter against the returned version of the Oracle database. If there is a match, the query runs without error and AWS DMS supports this version of the database. If there isn't a match, the query raises an error and AWS DMS doesn't support this version of the database. In that case, to proceed with migration, first convert the Oracle database to a AWS DMS-supported version.
 
 2. Run the query following to verify that supplemental logging is enabled for the database. If the returned result is YES or IMPLICIT, supplemental logging is enabled for the database.
 
 
-    SELECT supplemental_log_data_min FROM v$database;
+SELECT supplemental_log_data_min FROM v$database;
 
 3. If needed, enable supplemental logging for the database by running the command following.
 
