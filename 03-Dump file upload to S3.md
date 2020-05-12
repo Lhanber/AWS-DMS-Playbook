@@ -9,7 +9,12 @@ EX:
 ```
 expdp user/password@connection_string DIRECTORY=DATA_PUMP_DIR schemas=user1,user2,user3,user4,user5,user6  dumpfile=export.dmp
 ```
-DATA_PUMP_DIR is where your dumpfile's location
+DATA_PUMP_DIR is the directory where your dump file located
+
+Login to DB and Use below SQL to find DATA_PUMP_DIR path
+```
+SELECT * FROM ALL_DIRECTORIES;
+```
 
 2. Using AWS S3 CLI to upload to S3
 Copy MyFile.txt in current directory to s3://my-bucket/path
