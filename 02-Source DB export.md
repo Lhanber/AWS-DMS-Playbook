@@ -1,5 +1,6 @@
 # Before export DB
 1. Check source DB size for estimate migration time
+
 **Use below SQL to check DB size**
 ```
 select sum(bytes)/1024/1024 size_in_mb from dba_segments;
@@ -26,6 +27,7 @@ A2 ON A1.TABLE_NAME = A2.TABLE_NAME;
 ```
 
 3. Check lob column size for setting DMS LOB Mode
+
 **Use below SQL to list all LOB column with PK or UK**
 ```
 SELECT 'select sum(dbms_lob.getlength('|| ALL_LOBS.COLUMN_NAME ||')) from ' || ALL_LOBS.TABLE_NAME ||';'
@@ -49,6 +51,7 @@ AWS recommend export by schema level,so all we need is to export schemas which a
 
 ```
 SQL>GRANT  DATAPUMP_EXP_FULL_DATABASE  TO  user;
+SQL>GRANT  connect to user;
 ```
 
 **Export DB via oracle datapump by schemas**
