@@ -9,7 +9,7 @@ EX:
 ```
 expdp user/password@connection_string DIRECTORY=DATA_PUMP_DIR schemas=user1,user2,user3,user4,user5,user6  dumpfile=export.dmp
 ```
-DATA_PUMP_DIR is the directory where your dump file located
+**DATA_PUMP_DIR** is the directory where your dump file located
 
 Login to DB and Use below SQL to find DATA_PUMP_DIR path
 ```
