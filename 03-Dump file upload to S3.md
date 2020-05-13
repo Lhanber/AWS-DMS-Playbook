@@ -3,7 +3,7 @@
 
 1. Navigate to datapump DIRECTORY
 
-  Please check your datapump command
+  Please check your datapump expdp command
 
 EX:
 ```
