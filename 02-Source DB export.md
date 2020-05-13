@@ -4,7 +4,7 @@
 ```
 select sum(bytes)/1024/1024 size_in_mb from dba_segments;
 ```
-2. Check lob column PK or UK
+2. Check lob columns have PK or UK
 
 Currently, a table must have a primary key for AWS DMS to capture LOB changes. If a table that contains LOBs doesn't have a primary key, there are several actions you can take to capture LOB changes:
 - Add a primary key to the table. This can be as simple as adding an ID column and populating it with a sequence using a trigger.
@@ -43,7 +43,13 @@ SELECT MAX(DBMS_LOB.getlength(column name)/1024) KB FROM table name;
 ```
 
 # Export DB
-AWS recommend export by schema level,so all we need is to export schemas which we need to migrate.
+AWS recommend export by schema level,so all we need is to export schemas which application used
+
+**Grant datapump role to user**
+
+```
+SQL>GRANT  DATAPUMP_EXP_FULL_DATABASE  TO  user;
+```
 
 **Export DB via oracle datapump by schemas**
 ```
