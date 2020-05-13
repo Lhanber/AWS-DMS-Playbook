@@ -1,9 +1,9 @@
 # Upload dump file to S3
 
 
-1. navigate to datapump DIRECTORY
+1. Navigate to datapump DIRECTORY
 
-Please check your datapump command
+  Please check your datapump command
 
 EX:
 ```
@@ -17,7 +17,7 @@ SELECT * FROM ALL_DIRECTORIES;
 ```
 
 2. Using AWS S3 CLI to upload to S3
-Copy MyFile.txt in current directory to s3://my-bucket/path
+Copy export.dmp in current directory to s3://my-bucket/path
 ```
 $ aws s3 cp export.dmp s3://my-bucket/path/
 ```
