@@ -1,3 +1,22 @@
+## Before Start DMS Full load + CDC data migration
+1. You have to check if there have any Temp table in migrated schema,please remember Temp table is not suitable for CDC Mode
+2. You have to disable foreign key and trigger on the target DB before starting DMS task,after finished data migrate,please remember to enable foreign key and trigger.
+
+Below is the SQL to disable foreign key and trigger.
+
+Disable FK constraint
+```
+select 'ALTER TABLE '||cur.owner||'.'||cur.table_name||' MODIFY CONSTRAINT '||cur.constraint_name||' DISABLE;' from all_constraints cur where owner IN ('user1','user2','user3','user4') and status = 'ENABLED';
+```
+
+Disable trigger
+```
+select 'alter trigger '||A.owner||'.'||A.trigger_name||' disable;' from all_triggers A where A.owner in ('user1','user2','user3','user4') order by A.owner, A.table_name;
+Or
+ALTER TABLE tablename DISABLE ALL TRIGGERS;
+```
+
+
 ## Creating Tasks for Ongoing Replication Using AWS DMS
 
 You can create an AWS DMS task that captures ongoing changes to the source data store. You can do this capture while you are migrating your data. You can also create a task that captures ongoing changes after you complete your initial (full-load) migration to a supported target data store. This process is called ongoing replication or change data capture (CDC). AWS DMS uses this process when replicating ongoing changes from a source data store. This process works by collecting changes to the database logs using the database engine's native API.
