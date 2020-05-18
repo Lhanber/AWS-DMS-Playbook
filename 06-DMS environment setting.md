@@ -81,6 +81,6 @@ Once you have finished with the task settings, choose **Create task**.
 
 **Check DMS task cloudwatch log**
 
-Afer you start DMS task,you can go to DMS cloudwatch log to see if there have any error message.
+After you start DMS task,you can go to DMS cloudwatch log to see if there have any error message.
 
 If you open DMS cloudwatch log,and encounter "Can't found cloudwatch log group" error,please follow [Why can't I see CloudWatch Logs for an AWS DMS task?](https://aws.amazon.com/tw/premiumsupport/knowledge-center/dms-cloudwatch-logs-not-appearing/) to troubleshoot.
