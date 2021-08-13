@@ -6,7 +6,7 @@ Below is the SQL to disable foreign key and trigger.
 
 Disable FK constraint
 ```
-select 'ALTER TABLE '||cur.owner||'.'||cur.table_name||' MODIFY CONSTRAINT '||cur.constraint_name||' DISABLE;' from all_constraints cur where owner IN ('user1','user2','user3','user4') and status = 'ENABLED';
+select 'ALTER TABLE '||cur.owner||'.'||cur.table_name||' MODIFY CONSTRAINT '||cur.constraint_name||' DISABLE;' from all_constraints cur where owner IN ('user1','user2','user3','user4') and status = 'ENABLED' and CONSTRAINT_TYPE='R';
 ```
 
 Disable trigger
